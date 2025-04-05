@@ -3,7 +3,7 @@
   <a href="" target="_blank">SaiReddy.tech</a>
 </h2>
 <div align="center">
-  <img alt="Demo" src="./Images/readme-img1.png" />
+  ![image](https://github.com/user-attachments/assets/1872c867-ce92-4e23-841a-8264825c552e)
 </div>
 
 <br/>
