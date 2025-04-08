@@ -1,11 +1,10 @@
 <h2 align="center">
   Portfolio Website - v2.0<br/>
-  <a href="" target="_blank">SaiReddy.tech</a>
+  <a href="https://saireddy-tech-portfolio.vercel.app/" target="_blank">SaiReddy.tech</a>
 </h2>
-<div align="center">
-  <img alt="Demo" src="./Images/readme-img1.png" />
-</div>
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/1872c867-ce92-4e23-841a-8264825c552e" alt="image" />
+</p>
 <br/>
 
 ## TL;DR
@@ -14,7 +13,7 @@ You can fork this repo to modify and make changes of your own. Please give me pr
 
 ## Built With
 
-My personal portfolio `<a href="https://saireddy.vercel.app/" target="_blank">`soumyajit.tech `</a>` which features some of my github projects as well as my resume and technical skills.`<br/>`
+My personal portfolio `<a href="https://saireddy-tech-portfolio.vercel.app/" target="_blank">`soumyajit.tech `</a>` which features some of my github projects as well as my resume and technical skills.`<br/>`
 
 This project was built using these technologies.
 
