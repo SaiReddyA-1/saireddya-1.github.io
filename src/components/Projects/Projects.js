@@ -2,12 +2,12 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
-import leaf from "../../Assets/Projects/leaf.png";
-import emotion from "../../Assets/Projects/emotion.png";
+import nftMint from "../../Assets/Projects/nft mint.png";
 import editor from "../../Assets/Projects/codeEditor.png";
 import xAI from "../../Assets/Projects/xAi.png";
-import suicide from "../../Assets/Projects/suicide.png";
 import bitsOfCode from "../../Assets/Projects/blog.png";
+import linkedInBot from "../../Assets/Projects/linkedInBot.png";
+import nxtTrendz from "../../Assets/Projects/nxtTrendz.png";
 
 function Projects() {
   return (
@@ -25,7 +25,7 @@ function Projects() {
             <ProjectCard
               imgPath={xAI} 
               isBlog={false}
-              title="Vercel x xAI Chatbot"
+              title="xAI Chatbot"
               description="An open-source AI chatbot built with Next.js, Vercel AI SDK, and xAI. Supports streaming responses, tool integration (like weather), reasoning model support, and a responsive UI with shadcn/ui and Tailwind CSS. Powered by the latest Next.js App Router."
               ghLink="https://github.com/SaiReddyA-1/xAI-SaiReddy"
               demoLink="https://saireddy-xai.vercel.app/" 
@@ -45,6 +45,17 @@ function Projects() {
 
           <Col md={4} className="project-card">
             <ProjectCard
+              imgPath={linkedInBot} 
+              isBlog={false}
+              title="AI-Powered LinkedIn Automation Agent"
+              description="An AI-based automation agent that streamlines LinkedIn lead generation using Google API and Playwright. It automates profile discovery, connection requests, and personalized messaging. Upcoming features include an email outreach module with attachments."
+              ghLink="https://github.com/SaiReddyA-1/Linked-Automation"
+              demoLink="https://v0-front-end-application-design.vercel.app/"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
               imgPath={editor}
               isBlog={false}
               title="Editor.io"
@@ -56,35 +67,23 @@ function Projects() {
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={leaf}
+              imgPath={nxtTrendz}
               isBlog={false}
-              title="Plant AI"
-              description="Used the plant disease dataset from Kaggle and trained a image classifer model using 'PyTorch' framework using CNN and Transfer Learning with 38 classes of various plant leaves. The model was successfully able to detect diseased and healthy leaves of 14 unique plants. I was able to achieve an accuracy of 98% by using Resnet34 pretrained model."
-              ghLink="https://github.com/soumyajit4419/Plant_AI"
-              demoLink="https://plant49-ai.herokuapp.com/"
+              title="Nxt Trendz - Cart Features"
+              description="An e-commerce app that replicates cart functionality like Amazon/Flipkart. It includes JWT-based authentication, cart item quantity updates, price calculations, and an empty cart view. Built using React, React Router, and Context API."
+              ghLink="https://github.com/SaiReddyA-1/Nxt-Trendz"
+              demoLink="https://sai0trends.ccbp.tech/"
             />
           </Col>
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={suicide}
+              imgPath={nftMint} 
               isBlog={false}
-              title="Ai For Social Good"
-              description="Suicide is a major public health concern, and early detection of suicidal ideation can save lives. Our project leverages Natural Language Processing (NLP) to identify suicide-related posts and detect users exhibiting suicidal tendencies in cyberspace. By analyzing text patterns, sentiment, and linguistic cues, our AI-driven system can flag distress signals in social media posts, forums, and online communities."
-              ghLink="https://github.com/soumyajit4419/AI_For_Social_Good"
-              demoLink="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" //<--------Please include a demo link here
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={emotion}
-              isBlog={false}
-              title="Face Recognition and Emotion Detection"
-              description="Trained a CNN classifier using 'FER-2013 dataset' with Keras and tensorflow backened. The classifier sucessfully predicted the various types of emotions of human. And the highest accuracy obtained with the model was 60.1%.
-              Then used Open-CV to detect the face in an image and then pass the face to the classifer to predict the emotion of a person."
-              ghLink="https://github.com/soumyajit4419/Face_And_Emotion_Detection"
-              demoLink="https://blogs.soumya-jit.tech/"
+              title="Web-Based NFT Mint"
+              description="A static web-based NFT minting application built using HTML, CSS, and JavaScript. Deployed on Vercel and GitHub Pages, it allows users to mint NFTs through a clean, responsive UI."
+              ghLink="https://github.com/SaiReddyA-1/Web-Based-NFT-MINT"
+              demoLink="https://sai-nft-mint.vercel.app/"
             />
           </Col>
         </Row>
