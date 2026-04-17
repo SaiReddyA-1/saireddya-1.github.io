@@ -2,12 +2,15 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
-import nftMint from "../../Assets/Projects/nft mint.png";
-import editor from "../../Assets/Projects/codeEditor.png";
+import oopdaas from "../../Assets/Projects/oopdaas.png";
+import ragAgent from "../../Assets/Projects/ragAgent.png";
+import automationTesting from "../../Assets/Projects/automationTesting.png";
 import xAI from "../../Assets/Projects/xAi.png";
 import bitsOfCode from "../../Assets/Projects/blog.png";
 import linkedInBot from "../../Assets/Projects/linkedInBot.png";
+import editor from "../../Assets/Projects/codeEditor.png";
 import nxtTrendz from "../../Assets/Projects/nxtTrendz.png";
+import nftMint from "../../Assets/Projects/nft mint.png";
 
 function Projects() {
   return (
@@ -21,6 +24,36 @@ function Projects() {
           Here are a few projects I've worked on recently.
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={oopdaas}
+              isBlog={false}
+              title="OOPDAAS Real-Time Telemetry Platform"
+              description="Production-grade data-center telemetry platform built at EverUptime Technologies with C#, .NET under a strict 2-second SLA. Features microservices for real-time event ingestion via Azure Service Bus, Event Grid, Event Hub, MQTT, AMQP, and Mosquitto Broker. Payload optimization improved throughput by ~30%."
+              // ghLink=""
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={ragAgent}
+              isBlog={false}
+              title="AI-Powered Enterprise Content Intelligence"
+              description="Fully Dockerized RAG system that ingests multi-format enterprise docs, builds a 1024-dim vector knowledge base, and returns grounded answers with source citations. Features 4-tier Triage AI achieving 95% classification confidence, hybrid k-NN + CrossEncoder reranking reducing LLM calls by ~75%, and a Streamlit dashboard."
+              ghLink="https://github.com/SaiReddyA-1/AI-Powered-Enterprise-Content-Intelligence"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={automationTesting}
+              isBlog={false}
+              title="AI Agent & Automation Framework"
+              description="Multi-step AI agent pipelines with LLM-driven decision logic automating backend workflows at Growstack Inc. Includes automated BDD (Cucumber) test suites covering UI and API layers for Spring Boot microservices using Java, Selenium, REST Assured. Reduced QA cycle time by 30%."
+              // ghLink=""
+            />
+          </Col>
+
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={xAI} 
