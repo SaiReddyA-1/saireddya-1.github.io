@@ -1,7 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "rewrites": [
-    { "source": "/", "destination": "/api/render" }
+  "routes": [
+    { "src": "^/$", "dest": "/api/render" },
+    { "handle": "filesystem" }
   ],
   "functions": {
     "api/render.js": {
