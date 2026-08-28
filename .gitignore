@@ -1,0 +1,13 @@
+node_modules/
+.vercel/
+.data/
+.env
+.env.local
+.env*.local
+*.log
+.original/
+
+.vercel
+.env*
+!.env.example
+Portfolio website redesign.zip

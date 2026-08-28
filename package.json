@@ -1,0 +1,13 @@
+{
+  "name": "saireddy-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "SaiReddy Annamareddy's portfolio — static site + Vercel serverless admin API",
+  "dependencies": {
+    "@vercel/blob": "^2.8.0"
+  },
+  "devDependencies": {
+    "vercel": "^59.9.1"
+  }
+}
