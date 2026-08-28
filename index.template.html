@@ -3,24 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SaiReddy Annamareddy — Backend &amp; AI Engineer</title>
+<title>SaiReddy Annamareddy · Backend &amp; AI Engineer</title>
 <meta name="description" content="I take products from a blank repo to something running: an enterprise RAG platform for four terabytes of unstructured documents, full-stack MERN, and production services in .NET.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0d14'/><circle cx='50' cy='48' r='19' fill='none' stroke='%235b8dff' stroke-width='5'/><circle cx='50' cy='48' r='9' fill='%232f6bff'/><circle cx='38' cy='34' r='4' fill='%231d4ed8'/><circle cx='63' cy='36' r='4' fill='%231d4ed8'/><circle cx='58' cy='63' r='4' fill='%231d4ed8'/><path d='M38 34 50 48 63 36M50 48 58 63' stroke='%232f6bff' stroke-width='3' opacity='.8'/></svg>">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="SaiReddy Annamareddy — Backend &amp; AI Engineer">
+<meta property="og:title" content="SaiReddy Annamareddy · Backend &amp; AI Engineer">
 <meta property="og:description" content="I take products from a blank repo to something running: an enterprise RAG platform for four terabytes of unstructured documents, full-stack MERN, and production services in .NET.">
 <meta property="og:image" content="/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SaiReddy Annamareddy — Backend &amp; AI Engineer">
+<meta name="twitter:title" content="SaiReddy Annamareddy · Backend &amp; AI Engineer">
 <meta name="twitter:description" content="I take products from a blank repo to something running: an enterprise RAG platform for four terabytes of unstructured documents, full-stack MERN, and production services in .NET.">
 <meta name="twitter:image" content="/assets/og.png">
 
 <script>
   // Serves the runtime's CDN script requests (React/ReactDOM) from the vendored local
-  // copies instead of unpkg.com — see assets/vendor/. Keeps window.__resources defined
+  // copies instead of unpkg.com, see assets/vendor/. Keeps window.__resources defined
   // (an undefined value makes dc-runtime.js re-fetch the document over the network).
   window.__resources = {
     "https://unpkg.com/react@18.3.1/umd/react.production.min.js": "/assets/vendor/react.production.min.js",
@@ -625,8 +625,8 @@ textarea.input { min-height: 90px; resize: vertical; }
     .h1{font-size:44px !important}.h2{font-size:32px !important}.two{grid-template-columns:1fr !important}
     .navlinks{display:none !important}.metricrow{grid-template-columns:1fr 1fr !important}
     .three{grid-template-columns:1fr !important}.herogrid{grid-template-columns:1fr !important}}
-  /* Laptop-width screens only (mirrors the 80% browser-zoom look on a ~14" laptop) —
-     zoom rather than transform:scale so pointer coordinates (cursor glow/dot) and canvas
+  /* Laptop-width screens only (mirrors the 80% browser-zoom look on a ~14" laptop).
+     Zoom rather than transform:scale so pointer coordinates (cursor glow/dot) and canvas
      sizing (three.js hero, which reads clientWidth/clientHeight) stay correctly aligned.
      Excludes mobile (its own tuned scale, above) and excludes large monitors (1600px+,
      which should render at normal 100% scale). */
@@ -1541,8 +1541,8 @@ class Component extends DCLogic {
   state = {
     page: 'home', theme: 'light', menuOpen: false,
     // window.__INITIAL_PROFILE__ is injected server side by api/render.js before this
-    // script loads, so the real photo/résumé/contact info is correct on first paint —
-    // no flash from the placeholder default while componentDidMount's fetch is in flight.
+    // script loads, so the real photo/résumé/contact info is correct on first paint.
+    // No flash from the placeholder default while componentDidMount's fetch is in flight.
     profile: { ...Component.DEFAULTS, ...(typeof window !== 'undefined' && window.__INITIAL_PROFILE__ ? window.__INITIAL_PROFILE__ : {}) },
     authed: false, pinInput: '', loginError: false, saveNote: '', copyLabel: 'Copy for JSON',
     pinCurrentInput: '', pinNewInput: '', pinChangeError: '', pinChangeNote: ''
