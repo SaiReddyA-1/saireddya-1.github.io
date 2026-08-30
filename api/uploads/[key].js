@@ -1,7 +1,7 @@
 // Dev-only convenience: serves an uploaded résumé/photo from the local .data/uploads/
 // directory used by lib/store.js when no Blob store is configured. In production
 // (BLOB_READ_WRITE_TOKEN set) saveUpload() returns the Blob's own public CDN URL
-// directly, so this route is never hit — Vercel Blob serves those files itself.
+// directly, so this route is never hit; Vercel Blob serves those files itself.
 import { readLocalUpload } from '../../lib/store.js';
 
 const EXT_TYPES = {

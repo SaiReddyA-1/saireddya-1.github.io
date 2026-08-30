@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "SaiReddy Annamareddy's portfolio — static site + Vercel serverless admin API",
+  "description": "SaiReddy Annamareddy's portfolio: static site + Vercel serverless admin API",
   "dependencies": {
     "@vercel/blob": "^2.8.0"
   },

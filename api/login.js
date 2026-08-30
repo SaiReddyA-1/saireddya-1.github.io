@@ -22,7 +22,7 @@ export default async function handler(req, res) {
   const storedHash = await getPasscodeHash();
   const envPasscode = process.env.ADMIN_PASSCODE;
   // ADMIN_PASSCODE is only required as the bootstrap credential before a passcode has
-  // ever been set from the admin panel — once storedHash exists, it's not consulted.
+  // ever been set from the admin panel; once storedHash exists, it's not consulted.
   if (!storedHash && !envPasscode) {
     res.status(500).json({ error: 'admin auth is not configured on the server' });
     return;

@@ -1,6 +1,6 @@
 // Serves index.html at "/" with the current profile injected as window.__INITIAL_PROFILE__
 // before dc-runtime.js loads, so the first paint already has the real photo/résumé/contact
-// info — no flash from the placeholder default to the real content while the client fetches
+// info; no flash from the placeholder default to the real content while the client fetches
 // GET /api/profile. That fetch still happens on mount as a silent revalidation (in case the
 // profile changed in the moment between this response and hydration); with the initial
 // state already correct, it's a no-op in the common case.
@@ -8,7 +8,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { getProfile } from '../lib/store.js';
 
-// Mirrors Component.DEFAULTS in the client script — see assets note in api/profile.js.
+// Mirrors Component.DEFAULTS in the client script; see assets note in api/profile.js.
 const DEFAULTS = {
   email: 'saireddy.annamareddy@gmail.com',
   phone: '919281184144',

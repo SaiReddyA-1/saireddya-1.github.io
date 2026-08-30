@@ -720,6 +720,7 @@ textarea.input { min-height: 90px; resize: vertical; }
               <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.09em;color:var(--blue);text-transform:uppercase">open to work</div>
               <div style="font-weight:700;margin-top:6px;font-size:15px">Backend and AI engineer</div>
               <div style="font-size:13.5px;color:var(--muted)">B.Tech CSE, AI/ML and DS, 2026</div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:var(--blue2);text-transform:uppercase;margin-top:10px;padding-top:10px;border-top:1px solid var(--t8)">Full-time · Internship · Contract</div>
             </div>
           </div>
         </div>
@@ -745,6 +746,7 @@ textarea.input { min-height: 90px; resize: vertical; }
           <div style="font-size:14px;color:var(--muted);margin-top:8px">file formats parsed, OCR'd and indexed</div>
         </div>
       </div>
+      <div style="margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.03em;color:var(--muted)">Prototype measurements on sample data. 4 TB is the production design target.</div>
     </section>
 
     <section class="wrap" style="max-width:1280px;margin:0 auto;padding:84px 56px 24px">
@@ -935,6 +937,11 @@ textarea.input { min-height: 90px; resize: vertical; }
             </div>
           </div>
         </div>
+        <div>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.04em;color:var(--muted);flex-wrap:wrap">
+          <span style="display:inline-flex;align-items:center;gap:7px"><span style="width:11px;height:11px;border-radius:999px;background:rgba(47,107,255,.18);border:1px solid rgba(47,107,255,.4)"></span>Core, used in shipped work</span>
+          <span style="display:inline-flex;align-items:center;gap:7px"><span style="width:11px;height:11px;border-radius:999px;background:var(--t7);border:1px solid var(--t16)"></span>Familiar</span>
+        </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
           <div class="glass lift" style="padding:24px;border-radius:24px">
             <div style="font-family:'Caprasimo',serif;font-size:18px;margin-bottom:12px;color:var(--blue2)">AI and retrieval</div>
@@ -1013,6 +1020,7 @@ textarea.input { min-height: 90px; resize: vertical; }
             <div style="font-size:14.5px;color:var(--body2)">Winner of the AI Agent Competition at Growstack, which came with an internship and a Certificate of Excellence. Top 5% in the college coding contest.</div>
           </div>
         </div>
+        </div>
       </div>
     </section>
 
@@ -1079,6 +1087,140 @@ textarea.input { min-height: 90px; resize: vertical; }
         <div class="glass" style="border-radius:24px;padding:24px"><div style="font-family:'Caprasimo',serif;font-size:40px;line-height:1;color:var(--blue2)">90s to 4s</div><div style="font-size:13.5px;color:var(--muted);margin-top:6px">restart ingestion time</div></div>
         <div class="glass" style="border-radius:24px;padding:24px"><div style="font-family:'Caprasimo',serif;font-size:40px;line-height:1;color:var(--blue2)">100k+</div><div style="font-size:13.5px;color:var(--muted);margin-top:6px">chunks the index holds</div></div>
         <div class="glass" style="border-radius:24px;padding:24px"><div style="font-family:'Caprasimo',serif;font-size:40px;line-height:1;color:var(--blue2)">0</div><div style="font-size:13.5px;color:var(--muted);margin-top:6px">manual labels required</div></div>
+      </div>
+      <div style="margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.03em;color:var(--muted)">Prototype, measured on a 200-file sample. 4 TB is the production target it was designed for.</div>
+    </section>
+
+    <section class="wrap" style="max-width:1280px;margin:0 auto;padding:56px 56px 0">
+      <div style="display:grid;grid-template-columns:.72fr 1.28fr;gap:56px;align-items:start">
+        <div style="position:sticky;top:96px">
+          <h6 style="font-family:'Figtree',sans-serif;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;font-weight:700">In one line</h6>
+          <h2 class="h2" style="font-size:34px;line-height:1.1;letter-spacing:-.02em;margin:0">What I actually built</h2>
+        </div>
+        <div class="glass" style="padding:32px;border-radius:28px">
+          <p style="margin:0 0 16px;font-size:19px;color:var(--body);text-wrap:pretty">Drop in a pile of enterprise files in almost any format, readable or scanned, organised or not. The system reads them, works out what each one is, makes the whole repository searchable, and answers plain questions with citations back to the exact file and page.</p>
+          <p style="margin:0;font-size:15px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.02em">Any file in, citable knowledge out. Technical deep dive below.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" style="max-width:1280px;margin:0 auto;padding:70px 56px 0">
+      <h6 style="font-family:'Figtree',sans-serif;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;font-weight:700">System architecture</h6>
+      <h2 class="h2" style="font-size:38px;line-height:1.08;letter-spacing:-.02em;margin:0 0 10px;max-width:26ch">Two pipelines, one index</h2>
+      <p style="margin:0 0 28px;color:var(--muted);font-size:17px;max-width:66ch">Ingestion runs offline and incrementally, writing to a vector index. Queries read from that same index online. A SHA-256 file manifest is what lets a restart skip everything that has not changed.</p>
+      <div class="glass" style="padding:30px;border-radius:28px">
+        <div style="overflow-x:auto">
+          <svg viewBox="0 0 1160 560" width="1160" style="max-width:100%;min-width:900px;height:auto;display:block;font-family:'JetBrains Mono',monospace" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="System architecture: offline ingestion pipeline and online query pipeline sharing one OpenSearch index, with a SHA-256 file manifest driving incremental restarts.">
+            <defs>
+              <marker id="arch-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0 0 L10 5 L0 10 z" fill="var(--blue)"></path>
+              </marker>
+              <marker id="arch-arrow-soft" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M0 0 L10 5 L0 10 z" fill="var(--muted)"></path>
+              </marker>
+            </defs>
+
+            <!-- lane labels -->
+            <text x="24" y="40" fill="var(--muted)" font-size="12" letter-spacing="1.5">OFFLINE · INGESTION</text>
+            <text x="24" y="330" fill="var(--muted)" font-size="12" letter-spacing="1.5">ONLINE · QUERY</text>
+
+            <!-- offline stages -->
+            <g>
+              <rect x="24" y="56" width="150" height="70" rx="14" fill="var(--panel)" stroke="var(--t16)"></rect>
+              <text x="99" y="86" text-anchor="middle" fill="var(--ink)" font-size="13" font-weight="700">Scanner</text>
+              <text x="99" y="106" text-anchor="middle" fill="var(--muted)" font-size="10.5">SHA-256 IDs</text>
+
+              <rect x="200" y="56" width="150" height="70" rx="14" fill="var(--panel)" stroke="var(--t16)"></rect>
+              <text x="275" y="86" text-anchor="middle" fill="var(--ink)" font-size="13" font-weight="700">Parser</text>
+              <text x="275" y="106" text-anchor="middle" fill="var(--muted)" font-size="10.5">per-page text</text>
+
+              <rect x="376" y="56" width="150" height="70" rx="14" fill="var(--panel)" stroke="var(--t16)"></rect>
+              <text x="451" y="82" text-anchor="middle" fill="var(--ink)" font-size="13" font-weight="700">OCR</text>
+              <text x="451" y="102" text-anchor="middle" fill="var(--muted)" font-size="10.5">gated, under</text>
+              <text x="451" y="116" text-anchor="middle" fill="var(--muted)" font-size="10.5">50 chars</text>
+
+              <rect x="552" y="56" width="150" height="70" rx="14" fill="var(--panel)" stroke="var(--t16)"></rect>
+              <text x="627" y="86" text-anchor="middle" fill="var(--ink)" font-size="13" font-weight="700">Triage</text>
+              <text x="627" y="106" text-anchor="middle" fill="var(--muted)" font-size="10.5">4-tier cascade</text>
+
+              <rect x="728" y="56" width="150" height="70" rx="14" fill="var(--panel)" stroke="var(--t16)"></rect>
+              <text x="803" y="86" text-anchor="middle" fill="var(--ink)" font-size="13" font-weight="700">Chunker</text>
+              <text x="803" y="106" text-anchor="middle" fill="var(--muted)" font-size="10.5">page-aware</text>
+
+              <rect x="904" y="56" width="150" height="70" rx="14" fill="var(--blue)"></rect>
+              <text x="979" y="86" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Embedder</text>
+              <text x="979" y="106" text-anchor="middle" fill="rgba(255,255,255,.85)" font-size="10.5">bge, 1024-dim</text>
+            </g>
+            <!-- offline connectors -->
+            <g stroke="var(--blue)" stroke-width="2" marker-end="url(#arch-arrow)">
+              <line x1="174" y1="91" x2="198" y2="91"></line>
+              <line x1="350" y1="91" x2="374" y2="91"></line>
+              <line x1="526" y1="91" x2="550" y2="91"></line>
+              <line x1="702" y1="91" x2="726" y2="91"></line>
+              <line x1="878" y1="91" x2="902" y2="91"></line>
+            </g>
+
+            <!-- shared index (center) -->
+            <rect x="430" y="212" width="300" height="96" rx="18" fill="color-mix(in srgb, var(--blue) 16%, transparent)" stroke="var(--blue)" stroke-width="1.5"></rect>
+            <text x="580" y="250" text-anchor="middle" fill="var(--blue2)" font-size="15" font-weight="700">OpenSearch index</text>
+            <text x="580" y="272" text-anchor="middle" fill="var(--blue2)" font-size="11">HNSW · cosine · m=16</text>
+            <text x="580" y="290" text-anchor="middle" fill="var(--muted)" font-size="11">vector + metadata</text>
+
+            <!-- embedder -> index (write) -->
+            <path d="M979 126 L979 260 L732 260" fill="none" stroke="var(--blue)" stroke-width="2" marker-end="url(#arch-arrow)"></path>
+            <text x="820" y="180" text-anchor="middle" fill="var(--muted)" font-size="10.5">index</text>
+
+            <!-- manifest -->
+            <rect x="24" y="212" width="180" height="96" rx="14" fill="var(--panel)" stroke="var(--t16)" stroke-dasharray="5 4"></rect>
+            <text x="114" y="248" text-anchor="middle" fill="var(--ink)" font-size="13" font-weight="700">File manifest</text>
+            <text x="114" y="268" text-anchor="middle" fill="var(--muted)" font-size="10.5">SHA-256, JSON</text>
+            <text x="114" y="284" text-anchor="middle" fill="var(--muted)" font-size="10.5">new / changed /</text>
+            <text x="114" y="298" text-anchor="middle" fill="var(--muted)" font-size="10.5">deleted / skip</text>
+            <!-- manifest <-> scanner loop -->
+            <path d="M99 126 L99 168 L60 168 L60 210" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arch-arrow-soft)"></path>
+            <path d="M150 210 L150 168 L128 168 L128 128" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arch-arrow-soft)"></path>
+            <text x="205" y="188" fill="var(--muted)" font-size="10.5">diff on restart</text>
+
+            <!-- online stages -->
+            <g>
+              <rect x="24" y="346" width="150" height="70" rx="14" fill="var(--panel)" stroke="var(--t16)"></rect>
+              <text x="99" y="376" text-anchor="middle" fill="var(--ink)" font-size="13" font-weight="700">Query</text>
+              <text x="99" y="396" text-anchor="middle" fill="var(--muted)" font-size="10.5">natural language</text>
+
+              <rect x="200" y="346" width="150" height="70" rx="14" fill="var(--panel)" stroke="var(--t16)"></rect>
+              <text x="275" y="376" text-anchor="middle" fill="var(--ink)" font-size="13" font-weight="700">Intent + embed</text>
+              <text x="275" y="396" text-anchor="middle" fill="var(--muted)" font-size="10.5">metadata filters</text>
+
+              <rect x="376" y="346" width="170" height="70" rx="14" fill="var(--panel)" stroke="var(--t16)"></rect>
+              <text x="461" y="376" text-anchor="middle" fill="var(--ink)" font-size="13" font-weight="700">Hybrid search</text>
+              <text x="461" y="396" text-anchor="middle" fill="var(--muted)" font-size="10.5">top 15 candidates</text>
+
+              <rect x="572" y="346" width="150" height="70" rx="14" fill="var(--blue)"></rect>
+              <text x="647" y="376" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Reranker</text>
+              <text x="647" y="396" text-anchor="middle" fill="rgba(255,255,255,.85)" font-size="10.5">CrossEncoder, top 5</text>
+
+              <rect x="748" y="346" width="150" height="70" rx="14" fill="var(--panel)" stroke="var(--t16)"></rect>
+              <text x="823" y="376" text-anchor="middle" fill="var(--ink)" font-size="13" font-weight="700">LLM</text>
+              <text x="823" y="396" text-anchor="middle" fill="var(--muted)" font-size="10.5">Groq, 3-layer context</text>
+
+              <rect x="924" y="346" width="150" height="70" rx="14" fill="color-mix(in srgb, var(--blue2) 20%, transparent)" stroke="var(--blue2)"></rect>
+              <text x="999" y="376" text-anchor="middle" fill="var(--blue2)" font-size="13" font-weight="700">Answer</text>
+              <text x="999" y="396" text-anchor="middle" fill="var(--blue2)" font-size="10.5">+ citations</text>
+            </g>
+            <!-- online connectors -->
+            <g stroke="var(--blue)" stroke-width="2" marker-end="url(#arch-arrow)">
+              <line x1="174" y1="381" x2="198" y2="381"></line>
+              <line x1="350" y1="381" x2="374" y2="381"></line>
+              <line x1="546" y1="381" x2="570" y2="381"></line>
+              <line x1="722" y1="381" x2="746" y2="381"></line>
+              <line x1="898" y1="381" x2="922" y2="381"></line>
+            </g>
+            <!-- index -> hybrid search (read) -->
+            <path d="M461 346 L461 304 L428 304" fill="none" stroke="var(--blue)" stroke-width="2" marker-end="url(#arch-arrow)"></path>
+            <text x="360" y="330" text-anchor="middle" fill="var(--muted)" font-size="10.5">read</text>
+          </svg>
+        </div>
+        <div style="margin-top:16px;font-size:14.5px;color:var(--muted)">The public prototype runs every model locally except the LLM (Groq). In production these were moved behind AWS, covered below.</div>
       </div>
     </section>
 
@@ -1201,6 +1343,29 @@ textarea.input { min-height: 90px; resize: vertical; }
             <li>Content hashing deduplicates the same file living in two folders.</li>
           </ul>
         </div>
+      </div>
+    </section>
+
+    <section class="wrap" style="max-width:1280px;margin:0 auto;padding:70px 56px 0">
+      <h6 style="font-family:'Figtree',sans-serif;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;font-weight:700">From prototype to production</h6>
+      <h2 class="h2" style="font-size:38px;line-height:1.08;letter-spacing:-.02em;margin:0 0 10px;max-width:28ch">I designed the prototype, then led the team that shipped it</h2>
+      <p style="margin:0 0 28px;color:var(--muted);font-size:17px;max-width:70ch">The repository above is the exact prototype we deployed. It is public because I built it deliberately on free and open-source tools, so it could be shared. Taking it to production for the client was a different job, and I led it.</p>
+      <div class="two" style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+        <div class="glass" style="padding:34px;border-radius:28px">
+          <h3 style="font-size:24px;margin:0 0 14px">The public prototype</h3>
+          <p style="margin:0 0 14px;color:var(--body);font-size:16.5px">I designed and built it end to end on open tools: Groq for the LLM, BAAI/bge for embeddings, Tesseract for OCR, OpenSearch for the vector index. Everything runs from one <span style="font-family:'JetBrains Mono',monospace;font-size:15px;color:var(--blue2)">docker-compose up</span>.</p>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:13.5px;color:var(--muted)">The numbers on this page were measured here, on sample data, not at full scale.</div>
+        </div>
+        <div style="padding:34px;border-radius:28px;background:linear-gradient(160deg,rgba(47,107,255,.2),rgba(122,165,255,.12));border:1px solid rgba(47,107,255,.28)">
+          <h3 style="font-size:24px;margin:0 0 14px">What shipped to the client</h3>
+          <p style="margin:0 0 14px;color:var(--body2);font-size:16.5px">I led a 10-engineer team that took this exact prototype to production on AWS. We moved every model in-account, so there are <span style="font-weight:700">no external LLM calls</span>, and the client's data, up to the 4 TB target, never leaves their environment. At scale we swap in more accurate models than the free ones the prototype ships with.</p>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:13.5px;color:var(--blue2);font-weight:600">Designed the prototype · led the migration · delivered to the client.</div>
+        </div>
+      </div>
+      <div class="three" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px">
+        <div class="glass" style="padding:24px;border-radius:24px"><div style="font-family:'Caprasimo',serif;font-size:30px;color:var(--blue2)">10</div><div style="font-size:14px;color:var(--muted);margin-top:6px">engineers I led on the production migration</div></div>
+        <div class="glass" style="padding:24px;border-radius:24px"><div style="font-family:'Caprasimo',serif;font-size:30px;color:var(--blue2)">0</div><div style="font-size:14px;color:var(--muted);margin-top:6px">external LLM calls in production, all in-account</div></div>
+        <div class="glass" style="padding:24px;border-radius:24px"><div style="font-family:'Caprasimo',serif;font-size:30px;color:var(--blue2)">100%</div><div style="font-size:14px;color:var(--muted);margin-top:6px">of client data kept inside their AWS account</div></div>
       </div>
     </section>
 
@@ -1563,7 +1728,7 @@ class Component extends DCLogic {
       this.setState({ profile: { ...this.state.profile, ...saved }, saveNote: 'Saved' });
       this._noteT = setTimeout(() => this.setState({ saveNote: '' }), 1800);
     }).catch(() => {
-      this.setState({ saveNote: 'Could not save — check your connection' });
+      this.setState({ saveNote: 'Could not save, check your connection' });
       this._noteT = setTimeout(() => this.setState({ saveNote: '' }), 2600);
     });
   }
@@ -1576,7 +1741,7 @@ class Component extends DCLogic {
 
   uploadFile(kind, blob) {
     // Raw bytes, not multipart: Vercel's Node runtime only auto-parses a handful of
-    // content types into req.body, and application/octet-stream is one of them —
+    // content types into req.body, and application/octet-stream is one of them,
     // multipart/form-data is not, and its raw stream isn't re-readable by the time a
     // function handler runs. kind travels as a query param since it's always available
     // via req.query regardless of how (or whether) the body gets parsed.
@@ -1647,7 +1812,7 @@ class Component extends DCLogic {
 
   clearPhoto = () => {
     // Explicit null (not delete): the server only clears a stored field when it is sent
-    // as null — a key that's simply absent from the request is left untouched server side.
+    // as null. A key that's simply absent from the request is left untouched server side.
     this.saveProfile({ ...this.state.profile, photoUrl: null, photoName: null });
   };
 
@@ -1727,7 +1892,7 @@ class Component extends DCLogic {
   };
 
   // Resets the contact/text fields only. A résumé or photo you've uploaded through this
-  // panel is real, live content, not a placeholder — reset never reverts or deletes it.
+  // panel is real, live content, not a placeholder; reset never reverts or deletes it.
   resetAll = () => {
     const { resumeUrl, resumeName, resumeSize, photoUrl, photoName } = this.state.profile;
     this.saveProfile({ ...Component.DEFAULTS, resumeUrl, resumeName, resumeSize, photoUrl, photoName });
@@ -1774,7 +1939,7 @@ class Component extends DCLogic {
     if (!glow || !dot) return;
     // CSS zoom (the laptop-width display scale, see the stylesheet) scales transform's
     // px values the same way it scales everything else, but MouseEvent.clientX/Y stay in
-    // real, unscaled viewport pixels — dividing by the zoom factor is what keeps the dot
+    // real, unscaled viewport pixels; dividing by the zoom factor is what keeps the dot
     // and glow rendering exactly under the real cursor instead of drifting toward the
     // top-left corner as zoom shrinks.
     const zoomFactor = () => parseFloat(getComputedStyle(document.documentElement).zoom) || 1;
@@ -1815,7 +1980,7 @@ class Component extends DCLogic {
   // quiet during a heavy re-render (new page section tree, three.js scene restarting).
   //
   // Uses its own scroll animation rather than scrollIntoView's/scrollTo's native
-  // behavior:'smooth' — under the laptop-width zoom rule, the browser's built in smooth
+  // behavior:'smooth' under the laptop-width zoom rule, the browser's built in smooth
   // scroll silently does nothing (confirmed directly: instant scrollTo/scrollIntoView both
   // work fine at zoom:0.8, only the native smooth path breaks). Plain instant scrollTo
   // calls each frame sidestep that entirely.

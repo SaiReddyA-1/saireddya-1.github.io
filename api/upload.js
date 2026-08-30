@@ -2,7 +2,7 @@ import { verifySession } from '../lib/auth.js';
 import { saveUpload } from '../lib/store.js';
 
 // Vercel's Node runtime auto-parses a request body into req.body only for a few known
-// content types — application/octet-stream is one of them (a plain Buffer), and it's
+// content types; application/octet-stream is one of them (a plain Buffer), and it's
 // the one we rely on. multipart/form-data is NOT auto-parsed, and empirically (tested
 // against `vercel dev`) the raw stream is already drained by the time the handler runs,
 // so it can't be re-read manually either. The client therefore sends the raw file bytes
@@ -11,7 +11,7 @@ import { saveUpload } from '../lib/store.js';
 
 const LIMITS = { resume: 4 * 1024 * 1024, photo: 3 * 1024 * 1024 };
 
-// Never trust the declared kind/filename alone — sniff the actual bytes.
+// Never trust the declared kind/filename alone; sniff the actual bytes.
 const MAGIC = {
   pdf: (buf) => buf.length >= 5 && buf.toString('latin1', 0, 5) === '%PDF-',
   jpeg: (buf) => buf.length >= 3 && buf[0] === 0xff && buf[1] === 0xd8 && buf[2] === 0xff,

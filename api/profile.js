@@ -3,7 +3,7 @@ import { getProfile, setProfile } from '../lib/store.js';
 
 // Public defaults. Kept in sync with assets committed to the repo (assets/resume.pdf,
 // assets/profile-default.svg is applied client side as the photo fallback). The admin
-// passcode used to live here — it never does now; it's ADMIN_PASSCODE on the server only.
+// passcode used to live here; it never does now; it's ADMIN_PASSCODE on the server only.
 const DEFAULTS = {
   email: 'saireddy.annamareddy@gmail.com',
   phone: '919281184144',
@@ -23,7 +23,7 @@ const WRITABLE_FIELDS = [
 const MAX_FIELD_LEN = 4000;
 
 // The client always sends its complete desired profile (never a partial patch), so this
-// is a pure replace, not a merge with whatever was previously stored — that also means
+// is a pure replace, not a merge with whatever was previously stored; that also means
 // "Reset to defaults" and "Remove photo/résumé" work by simply omitting/nulling a field,
 // with no separate delete path needed.
 function sanitize(input) {
