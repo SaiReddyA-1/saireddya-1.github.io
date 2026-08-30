@@ -739,7 +739,7 @@ textarea.input { min-height: 90px; resize: vertical; }
         </div>
         <div class="glass lift" style="border-radius:26px;padding:26px">
           <div style="font-family:'Caprasimo',serif;font-size:46px;line-height:1;color:var(--blue2)">95%</div>
-          <div style="font-size:14px;color:var(--muted);margin-top:8px">triage confidence with no manual labelling</div>
+          <div style="font-size:14px;color:var(--muted);margin-top:8px">heuristic triage confidence, no manual labels</div>
         </div>
         <div class="glass lift" style="border-radius:26px;padding:26px">
           <div style="font-family:'Caprasimo',serif;font-size:46px;line-height:1;color:var(--blue2)">12</div>
@@ -887,7 +887,7 @@ textarea.input { min-height: 90px; resize: vertical; }
       <div class="two" style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
         <div class="glass lift" style="padding:30px;border-radius:28px">
           <div style="font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--blue2);letter-spacing:.06em">HASH MAPS AND DIFFING</div>
-          <h4 style="font-size:21px;margin:8px 0 10px">O(1) change detection over a whole repository</h4>
+          <h4 style="font-size:21px;margin:8px 0 10px">Incremental change detection, O(1) lookups per file</h4>
           <p style="margin:0;font-size:15.5px;color:var(--muted)">The manifest is a hash map keyed by SHA-256 content ID. Deciding whether a file needs reprocessing is a constant time lookup instead of a rescan, which is exactly what turns a 90 second restart into 4 seconds.</p>
         </div>
         <div class="glass lift" style="padding:30px;border-radius:28px">
@@ -1660,7 +1660,7 @@ textarea.input { min-height: 90px; resize: vertical; }
           <h6 style="font-family:'Figtree',sans-serif;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;font-weight:700">What I actually did</h6>
           <ul style="margin:0;padding-left:20px;font-size:16.5px;color:var(--body);display:flex;flex-direction:column;gap:10px">
             <li>Built backend modules in C# and .NET for data centre telemetry processing, held to the platform's 2 second end to end budget.</li>
-            <li>Optimised key value payload handling on the hot path, raising transfer payload from 2,333 to 3,044.</li>
+            <li>Shrank each telemetry payload from 95 to 59 bytes by dropping a redundant key, so a fixed 256 KB/s channel carries 4,338 signals per second instead of 2,694.</li>
             <li>Integrated production microservices across Azure Service Bus, Event Grid, Event Hub, MQTT, AMQP and Mosquitto.</li>
             <li>Read the end to end architecture before contributing, then delivered components that fit it rather than fighting it.</li>
           </ul>
@@ -1671,7 +1671,7 @@ textarea.input { min-height: 90px; resize: vertical; }
             <li>A latency budget is a design constraint, not a metric. It decides what you are allowed to do per message.</li>
             <li>In a distributed system, reading the whole path first is faster than starting to code sooner.</li>
             <li>Protocol choice is mostly about delivery guarantees and backpressure, not throughput headlines.</li>
-            <li>Small payload level optimisations compound at volume in a way that architecture diagrams never show.</li>
+            <li>It taught me to think at the byte level: one key removed from a payload compounds into thousands more signals a second, the kind of gain no architecture diagram shows.</li>
           </ul>
         </div>
       </div>
