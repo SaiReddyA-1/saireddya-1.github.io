@@ -88,8 +88,8 @@ production automatically. To set it up from scratch elsewhere:
 - Saving a field, uploading a résumé or photo, or clicking "Reset to defaults" all write
   through `POST /api/profile`, live for every visitor immediately, not just your own
   browser.
-- "Reset to defaults" only resets the text fields (email, phone, links, location,
-  availability). A résumé or photo you've uploaded is real content, not a placeholder, so
+- "Reset to defaults" only resets the text fields (email, phone, links,
+  location). A résumé or photo you've uploaded is real content, not a placeholder, so
   reset never touches or deletes it.
 - Uploads are validated server side by actual file bytes, not just the declared MIME type:
   PDFs must start with the PDF magic bytes, images must be real JPEG or PNG. Résumés cap at
