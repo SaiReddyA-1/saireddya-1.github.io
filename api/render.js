@@ -16,7 +16,6 @@ const DEFAULTS = {
   linkedin: 'https://linkedin.com/in/saireddy0annamareddy',
   resume: 'assets/resume.pdf',
   location: '+91 92811 84144 · Hyderabad, Telangana',
-  availability: 'Open to India, US and EU startups · remote or Hyderabad',
 };
 
 const SCRIPT_MARKER = '<script src="assets/dc-runtime.js">';
